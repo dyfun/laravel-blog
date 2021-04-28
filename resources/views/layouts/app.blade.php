@@ -51,7 +51,11 @@
                 var Text = $(this).val();
                 Text = Text.toLowerCase();
                 var regExp = /\s+/g;
-                Text = Text.replace(regExp,'-');
+                Text = Text.replace(regExp,'-').replace(/\s+/g, "-")
+                    .replace(/[^\w\-]+/g, "")
+                    .replace(/\-\-+/g, "-")
+                    .replace(/^-+/, "")
+                    .replace(/-+$/, "");
 
                 var trMap = {
                     'çÇ':'c',
