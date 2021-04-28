@@ -7,6 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto mt-5">
+                    @if ($message = Session::get('success'))
+                        <div class="alert bg-success text-white">{{ $message  }}</div>
+                    @endif
                     <img src="{{asset($post->thumbnail)}}" alt="" class="img-fluid mb-5">
                     {!! $post->detail !!}
                 </div>
